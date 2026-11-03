@@ -1,0 +1,50 @@
+<!-- Páantalla de acceso de los trabajadores-->
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>StyleTime - Inicio de sesión</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>StyleTime</h1>
+    </header>
+
+
+    <!-- Aún no se puede autenticar, el uso de type "password" es para ocukltar visualmente-->
+    <main>
+        <section>
+            <h2>Inicio de sesión</h2>
+            <form>
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario">
+
+                <label for="clave">Contraseña:</label>
+                <input type="password" id="clave">
+
+                <button type="button" onclick="ingresar()">
+                    Ingresar
+                </button>
+            </form>
+            <p id="mensaje" class="mensaje"></p>
+        </section>
+    </main>
+
+    <script>
+        function ingresar() {
+            let usuario = document.getElementById("usuario").value;
+            let clave = document.getElementById("clave").value;
+
+            if (usuario == "" || clave == "") {
+                document.getElementById("mensaje").textContent =
+                    "Todos los campos son obligatorios.";
+            } else {
+                document.getElementById("mensaje").textContent =
+                    "Formulario completo. Autenticación pendiente.";
+            }
+        }
+    </script>
+</body>
+</html>

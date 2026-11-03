@@ -1,0 +1,98 @@
+/* Estilos generales*/
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 20px;
+    color: black;
+}
+
+header, footer {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    color: #800020;
+}
+
+section {
+    background-color: white;
+    border: 1px solid gray;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+}
+
+nav {
+    text-align: center;
+}
+
+nav a {
+    display: inline-block;
+    background-color: #800020;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #5c0017;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, select, textarea {
+    display: block;
+    width: 95%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+}
+
+button {
+    background-color: white;
+    color: #800020;
+    border: 1px solid #800020;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #eeeeee;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid gray;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #eeeeee;
+}
+
+tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+.mensaje {
+    color: red;
+}
+
+.correcto {
+    color: green;
+}
+

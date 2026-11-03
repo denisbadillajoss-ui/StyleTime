@@ -1,0 +1,54 @@
+<!-- Trabajadores -->
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>StyleTime - Trabajadores</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Gestión de trabajadores</h1>
+        <a href="index.html">Volver al inicio</a>
+    </header>
+
+    <main>
+        <section>
+            <h2>Registrar trabajador</h2>
+
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre">
+
+            <label for="especialidad">Especialidad:</label>
+            <input type="text" id="especialidad">
+
+            <label for="horario">Horario:</label>
+            <input type="text" id="horario"
+                   placeholder="Ejemplo: 08:00 a 17:00">
+
+            <button type="button" onclick="agregarTrabajador()">
+                Agregar trabajador
+            </button>
+
+            <p id="mensaje" class="mensaje"></p>
+        </section>
+
+        <section>
+            <h2>Lista de trabajadores</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Especialidad</th>
+                        <th>Horario</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaTrabajadores"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="js/trabajadores.js"></script>
+</body>
+</html>

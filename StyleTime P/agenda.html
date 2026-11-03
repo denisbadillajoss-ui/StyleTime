@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>StyleTime - Agenda</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Agenda de citas</h1>
+        <a href="index.html">Volver al inicio</a>
+    </header>
+
+    <main>
+        <section>
+            <h2>Consultar disponibilidad</h2>
+
+            <label for="trabajador">Trabajador:</label>
+            <select id="trabajador">
+                <option value="Andrea">Andrea</option>
+                <option value="Luis">Luis</option>
+            </select>
+
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha">
+
+            <button type="button" onclick="consultarAgenda()">
+                Consultar agenda
+            </button>
+
+            <p id="resultado"></p>
+        </section>
+    </main>
+
+    <script src="js/agenda.js"></script>
+</body>
+</html>

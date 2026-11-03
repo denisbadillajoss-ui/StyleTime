@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>StyleTime - Citas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Registro de citas</h1>
+        <a href="index.html">Volver al inicio</a>
+    </header>
+
+    <main>
+        <section>
+            <h2>Programar una cita</h2>
+
+            <label for="cliente">Cliente:</label>
+            <select id="cliente">
+                <option value="">Seleccione un cliente</option>
+                <option value="Gerald Herrera">Gerald Herrera</option>
+                <option value="Andrea Pérez">Andrea Pérez</option>
+            </select>
+
+            <label for="trabajador">Trabajador:</label>
+            <select id="trabajador">
+                <option value="">Seleccione un trabajador</option>
+                <option value="Maria">Maria</option>
+                <option value="Pedro">Pedro</option>
+            </select>
+
+            <label for="servicio">Servicio:</label>
+            <select id="servicio">
+                <option value="">Seleccione un servicio</option>
+                <option value="Corte de cabello">Corte de cabello</option>
+                <option value="Barba">Barba</option>
+            </select>
+
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha">
+
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora">
+
+            <label for="observaciones">Observaciones:</label>
+            <textarea id="observaciones"></textarea>
+
+            <button type="button" onclick="agregarCita()">
+                Registrar cita
+            </button>
+
+            <p id="mensaje" class="mensaje"></p>
+        </section>
+
+        <section>
+            <h2>Citas registradas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Trabajador</th>
+                        <th>Servicio</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaCitas"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="js/citas.js"></script>
+</body>
+</html>
