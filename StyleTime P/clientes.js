@@ -22,8 +22,7 @@ function agregarCliente() {
     let telefono = document.getElementById("telefono").value;
 
     if (nombre.trim() == "" || telefono.trim() == "") {
-        document.getElementById("mensaje").textContent =
-            "Todos los campos son obligatorios.";
+        mostrarMensaje("mensaje", "Todos los campos son obligatorios.", "danger");
         return;
     }
 
@@ -32,7 +31,7 @@ function agregarCliente() {
 
     document.getElementById("nombre").value = "";
     document.getElementById("telefono").value = "";
-    document.getElementById("mensaje").textContent = "";
+    mostrarMensaje("mensaje", "Cliente registrado correctamente.", "success");
 }
 
 mostrarClientes();

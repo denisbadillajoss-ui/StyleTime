@@ -1,98 +1,276 @@
-/* Estilos generales*/
+/* Estilos compartidos de StyleTime P. Bootstrap se carga antes de este archivo. */
+:root {
+    --st-primary: #800020;
+    --st-primary-dark: #5c0017;
+    --st-primary-soft: #f9edf1;
+    --st-border: #e8e2e5;
+    --bs-primary: #800020;
+    --bs-primary-rgb: 128, 0, 32;
+    --bs-link-color: #800020;
+    --bs-link-color-rgb: 128, 0, 32;
+    --bs-link-hover-color: #5c0017;
+    --bs-link-hover-color-rgb: 92, 0, 23;
+    --bs-body-color: #29232b;
+    --bs-secondary-color: #69636c;
+    --bs-border-color: #e8e2e5;
+}
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 20px;
-    color: black;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f8f7f9;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-header, footer {
-    text-align: center;
-    margin-bottom: 20px;
+h1, h2, h3, .navbar-brand {
+    font-weight: 700;
 }
 
-h1, h2 {
-    color: #800020;
+h1 {
+    font-size: clamp(1.65rem, 3vw, 2.25rem);
+    letter-spacing: -0.035em;
+    line-height: 1.25;
 }
 
-section {
-    background-color: white;
-    border: 1px solid gray;
-    padding: 20px;
-    margin: 20px auto;
-    width: 80%;
+a, button, input, select, textarea {
+    touch-action: manipulation;
 }
 
-nav {
-    text-align: center;
+.skip-link {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 1050;
+    padding: 0.75rem 1rem;
+    background: white;
 }
 
-nav a {
-    display: inline-block;
-    background-color: #800020;
+.app-navbar {
+    background: #fff;
+    border-bottom: 1px solid var(--st-border);
+    padding-block: 0.9rem;
+}
+
+.navbar-brand {
+    color: var(--st-primary);
+    letter-spacing: -0.03em;
+}
+
+.navbar-brand:hover, .navbar-brand:focus {
+    color: var(--st-primary-dark);
+}
+
+.brand-icon, .module-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 0.85rem;
+}
+
+.brand-icon {
+    width: 2.4rem;
+    height: 2.4rem;
     color: white;
-    padding: 10px;
-    margin: 5px;
-    text-decoration: none;
+    background: var(--st-primary);
+    font-size: 1.2rem;
 }
 
-nav a:hover {
-    background-color: #5c0017;
+.brand-suffix {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.35rem;
+    background: var(--st-primary-soft);
 }
 
-label {
-    display: block;
-    margin-top: 10px;
+.app-navbar .nav-link {
+    padding: 0.65rem 0.75rem;
+    border-radius: 0.5rem;
+    color: #58515b;
+    font-size: 0.875rem;
+    font-weight: 500;
 }
 
-input, select, textarea {
-    display: block;
-    width: 95%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border: 1px solid gray;
+.app-navbar .nav-link:hover, .app-navbar .nav-link:focus-visible,
+.app-navbar .nav-link.active {
+    color: var(--st-primary);
+    background: var(--st-primary-soft);
 }
 
-button {
-    background-color: white;
-    color: #800020;
-    border: 1px solid #800020;
-    padding: 10px;
-    margin: 5px;
-    cursor: pointer;
+.app-navbar .nav-link.active {
+    font-weight: 700;
 }
 
-button:hover {
-    background-color: #eeeeee;
+.app-navbar .session-link {
+    color: var(--st-primary);
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
+.dashboard-heading {
+    padding: clamp(1.4rem, 3vw, 2.5rem);
+    border: 1px solid var(--st-border);
+    border-radius: 1rem;
+    background: linear-gradient(115deg, #fff, #faf0f3);
 }
 
-th, td {
-    border: 1px solid gray;
-    padding: 8px;
-    text-align: left;
+.eyebrow {
+    color: var(--st-primary);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
 }
 
-th {
-    background-color: #eeeeee;
+.module-card, .section-card {
+    border: 1px solid var(--st-border);
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgb(41 35 43 / 3%);
 }
 
-tbody tr:hover {
-    background-color: #f2f2f2;
+.module-card {
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.module-card:hover {
+    transform: translateY(-3px);
+    border-color: #d5b5c0;
+    box-shadow: 0 10px 26px rgb(85 27 46 / 7%);
+}
+
+.module-icon {
+    width: 3rem;
+    height: 3rem;
+    background: var(--st-primary-soft);
+    color: var(--st-primary);
+    font-size: 1.4rem;
+}
+
+.module-card p {
+    line-height: 1.65;
+}
+
+.btn {
+    --bs-btn-border-radius: 0.55rem;
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--st-primary);
+    --bs-btn-border-color: var(--st-primary);
+    --bs-btn-hover-bg: var(--st-primary-dark);
+    --bs-btn-hover-border-color: var(--st-primary-dark);
+    --bs-btn-active-bg: var(--st-primary-dark);
+    --bs-btn-active-border-color: var(--st-primary-dark);
+    --bs-btn-disabled-bg: var(--st-primary);
+    --bs-btn-disabled-border-color: var(--st-primary);
+    --bs-btn-focus-shadow-rgb: 128, 0, 32;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--st-primary);
+    --bs-btn-border-color: #d5b5c0;
+    --bs-btn-hover-bg: var(--st-primary);
+    --bs-btn-hover-border-color: var(--st-primary);
+    --bs-btn-active-bg: var(--st-primary-dark);
+    --bs-btn-active-border-color: var(--st-primary-dark);
+    --bs-btn-focus-shadow-rgb: 128, 0, 32;
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.form-control, .form-select {
+    min-height: 2.75rem;
+    border-radius: 0.55rem;
+    font-size: 0.95rem;
+}
+
+textarea.form-control {
+    min-height: 6rem;
+    resize: vertical;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #b2687b;
+    box-shadow: 0 0 0 0.2rem rgb(128 0 32 / 12%);
 }
 
 .mensaje {
-    color: red;
+    margin: 1rem 0 0;
+    overflow-wrap: anywhere;
+}
+
+.mensaje:empty {
+    display: none;
 }
 
 .correcto {
-    color: green;
+    color: #14532d;
+    background-color: #e7f5ec;
+    border-color: #a3cfbb;
+}
+
+.table-responsive {
+    border-radius: 0 0 1rem 1rem;
+}
+
+.table {
+    --bs-table-striped-bg: #faf8fa;
+    --bs-table-hover-bg: #f9edf1;
+    font-size: 0.9rem;
+}
+
+.table > :not(caption) > * > * {
+    padding: 0.9rem 1rem;
+}
+
+.table thead th {
+    background: #f4f1f4;
+    color: #58515b;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.table td {
+    min-width: 7rem;
+    max-width: 25rem;
+    overflow-wrap: anywhere;
+}
+
+.table .empty-state {
+    padding: 3rem 1.25rem;
+    text-align: center;
+    color: var(--bs-secondary-color);
+}
+
+.app-footer {
+    padding-block: 1.4rem;
+    border-top: 1px solid var(--st-border);
+    font-size: 0.8rem;
+    background: white;
+}
+
+@media (max-width: 1199.98px) {
+    .app-navbar .navbar-collapse {
+        padding-top: 0.75rem;
+    }
+
+    .app-navbar .session-link {
+        margin-top: 0.35rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .module-card {
+        transition: none;
+    }
+
+    .module-card:hover {
+        transform: none;
+    }
 }
 

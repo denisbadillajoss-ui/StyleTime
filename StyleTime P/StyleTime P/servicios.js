@@ -25,8 +25,7 @@ function agregarServicio() {
 
     if (nombre.trim() == "" || duracionTexto == "" ||
         precioTexto == "") {
-        document.getElementById("mensaje").textContent =
-            "Todos los campos son obligatorios.";
+        mostrarMensaje("mensaje", "Todos los campos son obligatorios.", "danger");
         return;
     }
 
@@ -34,8 +33,7 @@ function agregarServicio() {
     let precio = Number(precioTexto);
 
     if (duracion <= 0 || precio < 0) {
-        document.getElementById("mensaje").textContent =
-            "Verifique la duración y el precio.";
+        mostrarMensaje("mensaje", "Verifique la duración y el precio.", "danger");
         return;
     }
 
@@ -50,7 +48,7 @@ function agregarServicio() {
     document.getElementById("nombre").value = "";
     document.getElementById("duracion").value = "";
     document.getElementById("precio").value = "";
-    document.getElementById("mensaje").textContent = "";
+    mostrarMensaje("mensaje", "Servicio registrado correctamente.", "success");
 }
 
 mostrarServicios();

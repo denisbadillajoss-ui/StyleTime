@@ -1,49 +1,40 @@
+// Registro en memoria, igual que los demás módulos. El envío sigue pendiente.
+let recordatorios = [];
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>StyleTime - Recordatorios</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <header>
-        <h1>Recordatorios de citas</h1>
-        <a href="index.html">Volver al inicio</a>
-    </header>
+function mostrarRecordatorios() {
+    const tabla = document.getElementById("tablaRecordatorios");
+    tabla.replaceChildren();
 
-    <main>
-        <section>
-            <h2>Registrar recordatorio</h2>
+    if (recordatorios.length === 0) {
+        tabla.innerHTML = '<tr><td colspan="3" class="empty-state">Aún no hay recordatorios registrados.</td></tr>';
+        return;
+    }
 
-            <label for="cliente">Cliente:</label>
-            <input type="text" id="cliente">
+    for (const recordatorio of recordatorios) {
+        const fila = document.createElement("tr");
+        for (const valor of [recordatorio.cliente, recordatorio.mensaje, recordatorio.estado]) {
+            const celda = document.createElement("td");
+            celda.textContent = valor;
+            fila.appendChild(celda);
+        }
+        tabla.appendChild(fila);
+    }
+}
 
-            <label for="mensajeTexto">Mensaje:</label>
-            <textarea id="mensajeTexto"></textarea>
+function agregarRecordatorio() {
+    const cliente = document.getElementById("cliente").value;
+    const mensaje = document.getElementById("mensajeTexto").value;
 
-            <button type="button" onclick="agregarRecordatorio()">
-                Agregar recordatorio
-            </button>
+    if (cliente.trim() === "" || mensaje.trim() === "") {
+        mostrarMensaje("mensaje", "Todos los campos son obligatorios.", "danger");
+        return;
+    }
 
-            <p id="mensaje" class="mensaje"></p>
-        </section>
+    recordatorios.push({ cliente: cliente, mensaje: mensaje, estado: "Pendiente" });
+    mostrarRecordatorios();
+    document.getElementById("cliente").value = "";
+    document.getElementById("mensajeTexto").value = "";
+    mostrarMensaje("mensaje", "Recordatorio registrado correctamente. Envío pendiente.", "success");
+}
 
-        <section>
-            <h2>Recordatorios registrados</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Cliente</th>
-                        <th>Mensaje</th>
-                        <th>Estado</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaRecordatorios"></tbody>
-            </table>
-        </section>
-    </main>
-
-    <script src="js/recordatorios.js"></script>
-</body>
-</html>
+mostrarRecordatorios();

@@ -15,6 +15,10 @@ function mostrarCitas() {
     }
 
     document.getElementById("tablaCitas").innerHTML = texto;
+    if (citas.length === 0) {
+        document.getElementById("tablaCitas").innerHTML =
+            '<tr><td colspan="5" class="empty-state">Aún no hay citas registradas.</td></tr>';
+    }
 }
 
 function agregarCita() {
@@ -24,11 +28,10 @@ function agregarCita() {
     let fecha = document.getElementById("fecha").value;
     let hora = document.getElementById("hora").value;
     let observaciones = document.getElementById("observaciones").value;
-    let mensaje = document.getElementById("mensaje");
 
     if (cliente == "" || trabajador == "" || servicio == "" ||
         fecha == "" || hora == "") {
-        mensaje.textContent = "Complete todos los campos obligatorios.";
+        mostrarMensaje("mensaje", "Complete todos los campos obligatorios.", "danger");
         return;
     }
 
@@ -36,8 +39,7 @@ function agregarCita() {
         if (citas[i].trabajador == trabajador &&
             citas[i].fecha == fecha &&
             citas[i].hora == hora) {
-            mensaje.textContent =
-                "El trabajador ya tiene una cita a esa hora.";
+            mostrarMensaje("mensaje", "El trabajador ya tiene una cita a esa hora.", "danger");
             return;
         }
     }
@@ -52,7 +54,7 @@ function agregarCita() {
     });
 
     mostrarCitas();
-    mensaje.textContent = "Cita registrada correctamente.";
+    mostrarMensaje("mensaje", "Cita registrada correctamente.", "success");
 
     document.getElementById("cliente").value = "";
     document.getElementById("trabajador").value = "";

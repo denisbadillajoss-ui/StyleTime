@@ -24,8 +24,7 @@ function agregarTrabajador() {
 
     if (nombre.trim() == "" || especialidad.trim() == "" ||
         horario.trim() == "") {
-        document.getElementById("mensaje").textContent =
-            "Todos los campos son obligatorios.";
+        mostrarMensaje("mensaje", "Todos los campos son obligatorios.", "danger");
         return;
     }
 
@@ -40,7 +39,7 @@ function agregarTrabajador() {
     document.getElementById("nombre").value = "";
     document.getElementById("especialidad").value = "";
     document.getElementById("horario").value = "";
-    document.getElementById("mensaje").textContent = "";
+    mostrarMensaje("mensaje", "Trabajador registrado correctamente.", "success");
 }
 
 mostrarTrabajadores();
