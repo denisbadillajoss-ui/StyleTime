@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de trabajadores | StyleTime P</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-page trabajadores-page">
+    <a class="visually-hidden-focusable skip-link" href="#contenido">Saltar al contenido</a>
+    <nav class="navbar navbar-expand-lg app-navbar" aria-label="Navegación principal">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <span class="brand-icon"><i class="bi bi-scissors" aria-hidden="true"></i></span>
+                <span>StyleTime <span class="brand-suffix">P</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal" aria-expanded="false" aria-label="Mostrar u ocultar el menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <p class="nav-caption">ESPACIO DE TRABAJO</p>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-grid-1x2" aria-hidden="true"></i><span>Inicio</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="agenda.html"><i class="bi bi-calendar3" aria-hidden="true"></i><span>Agenda</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="citas.html"><i class="bi bi-calendar-check" aria-hidden="true"></i><span>Citas</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="clientes.html"><i class="bi bi-people" aria-hidden="true"></i><span>Clientes</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="servicios.html"><i class="bi bi-scissors" aria-hidden="true"></i><span>Servicios</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="trabajadores.html" aria-current="page"><i class="bi bi-person-badge" aria-hidden="true"></i><span>Trabajadores</span><i class="bi bi-chevron-right nav-current" aria-hidden="true"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="recordatorios.html"><i class="bi bi-bell" aria-hidden="true"></i><span>Recordatorios</span></a></li>
+                    <li class="nav-item session-item"><a class="nav-link session-link" href="login.html"><i class="bi bi-box-arrow-right" aria-hidden="true"></i><span>Cerrar sesión</span></a></li>
+                </ul>
+                <div class="sidebar-footer">
+                    <span class="sidebar-monogram" aria-hidden="true"><i class="bi bi-scissors"></i></span>
+                    <div><strong>Tu salón, en orden.</strong><span>StyleTime P · Administración</span></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container app-main" id="contenido">
+        <header class="page-heading mb-4">
+            <nav aria-label="Ruta de navegación">
+                <ol class="breadcrumb small mb-3">
+                    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Gestión de trabajadores</li>
+                </ol>
+            </nav>
+            <h1>Gestión de trabajadores</h1>
+            <p class="text-secondary mb-0">Organiza las especialidades y los horarios de tu equipo.</p>
+        </header>
+        <div class="row g-4 module-layout">
+            <div class="col-12 col-lg-5">
+                <section class="card section-card" aria-labelledby="formularioTitulo">
+                    <div class="card-body p-4">
+                        <h2 class="h5 mb-2" id="formularioTitulo">Registrar trabajador</h2>
+                        <p class="text-secondary small mb-4">Completa los datos del integrante de tu equipo.</p>
+                        <form novalidate onsubmit="agregarTrabajador(); return false;">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label" for="nombre">Nombre</label>
+                                    <input type="text" id="nombre" class="form-control" required aria-describedby="nombreAyuda" autocomplete="name">
+                                    <div class="invalid-feedback" id="nombreAyuda">Complete este campo.</div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="especialidad">Especialidad</label>
+                                    <input type="text" id="especialidad" class="form-control" required aria-describedby="especialidadAyuda" placeholder="Ejemplo: Estilista">
+                                    <div class="invalid-feedback" id="especialidadAyuda">Complete este campo.</div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="horario">Horario</label>
+                                    <input type="text" id="horario" class="form-control" required aria-describedby="horarioAyuda" placeholder="Ejemplo: 08:00 a 17:00">
+                                    <div class="invalid-feedback" id="horarioAyuda">Complete este campo.</div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100" type="button" onclick="agregarTrabajador()">
+                                        <i class="bi bi-plus-lg me-2" aria-hidden="true"></i>Agregar trabajador
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <p id="mensaje" class="mensaje" role="status" aria-live="polite" aria-atomic="true"></p>
+                    </div>
+                </section>
+            </div>
+            <div class="col-12 col-lg-7">
+                <section class="card section-card" aria-labelledby="listaTitulo">
+                    <div class="card-body p-4 pb-0 flex-grow-0">
+                        <h2 class="h5 mb-2" id="listaTitulo">Lista de trabajadores</h2>
+                        <p class="text-secondary small mb-4">Consulta las especialidades y los horarios registrados.</p>
+                    </div>
+                    <div class="table-responsive" role="region" aria-label="Lista de trabajadores" tabindex="0">
+                        <table class="table table-dark table-striped table-hover table-bordered align-middle mb-0">
+                            <caption class="visually-hidden">Lista de trabajadores</caption>
+                            <thead>
+                                <tr><th scope="col">Nombre</th><th scope="col">Especialidad</th><th scope="col">Horario</th></tr>
+                            </thead>
+                            <tbody id="tablaTrabajadores"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer class="app-footer mt-auto">
+        <div class="container d-flex flex-column flex-sm-row justify-content-between gap-2">
+            <span>StyleTime P <span class="text-secondary">· Gestión de citas y servicios</span></span>
+            <span class="text-secondary">SC-502 · 2026 <a class="ms-3" href="login.html">Inicio de sesión</a></span>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="ui.js"></script>
+    <script src="trabajadores.js"></script>
+</body>
+</html>
