@@ -1,40 +1,48 @@
-// Registro en memoria, igual que los demás módulos. El envío sigue pendiente.
-let recordatorios = [];
+let recordatorios = JSON.parse(localStorage.getItem("recordatorios"));
+
+if (recordatorios == null) {
+    recordatorios = [];
+}
 
 function mostrarRecordatorios() {
-    const tabla = document.getElementById("tablaRecordatorios");
-    tabla.replaceChildren();
+    let texto = "";
 
-    if (recordatorios.length === 0) {
-        tabla.innerHTML = '<tr><td colspan="3" class="empty-state">Aún no hay recordatorios registrados.</td></tr>';
-        return;
+    for (let i = 0; i < recordatorios.length; i++) {
+        texto += "<tr>";
+        texto += "<td>" + recordatorios[i].cliente + "</td>";
+        texto += "<td>" + recordatorios[i].mensaje + "</td>";
+        texto += "<td>" + recordatorios[i].estado + "</td>";
+        texto += "</tr>";
     }
 
-    for (const recordatorio of recordatorios) {
-        const fila = document.createElement("tr");
-        for (const valor of [recordatorio.cliente, recordatorio.mensaje, recordatorio.estado]) {
-            const celda = document.createElement("td");
-            celda.textContent = valor;
-            fila.appendChild(celda);
-        }
-        tabla.appendChild(fila);
+    if (recordatorios.length == 0) {
+        texto = '<tr><td colspan="3" class="empty-state">Aún no hay recordatorios registrados.</td></tr>';
     }
+
+    document.getElementById("tablaRecordatorios").innerHTML = texto;
 }
 
 function agregarRecordatorio() {
-    const cliente = document.getElementById("cliente").value;
-    const mensaje = document.getElementById("mensajeTexto").value;
+    let cliente = document.getElementById("cliente").value;
+    let mensaje = document.getElementById("mensajeTexto").value;
 
-    if (cliente.trim() === "" || mensaje.trim() === "") {
+    if (cliente.trim() == "" || mensaje.trim() == "") {
         mostrarMensaje("mensaje", "Todos los campos son obligatorios.", "danger");
         return;
     }
 
-    recordatorios.push({ cliente: cliente, mensaje: mensaje, estado: "Pendiente" });
+    recordatorios.push({
+        cliente: cliente,
+        mensaje: mensaje,
+        estado: "Pendiente"
+    });
+
+    localStorage.setItem("recordatorios", JSON.stringify(recordatorios));
     mostrarRecordatorios();
+
     document.getElementById("cliente").value = "";
     document.getElementById("mensajeTexto").value = "";
-    mostrarMensaje("mensaje", "Recordatorio registrado correctamente. Envío pendiente.", "success");
+    mostrarMensaje("mensaje", "Recordatorio registrado correctamente.", "success");
 }
 
 mostrarRecordatorios();
