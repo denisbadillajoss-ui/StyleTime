@@ -1,7 +1,15 @@
-let trabajadores = [
-    {nombre: "Maria", especialidad: "Estilista", horario: "08:00 a 17:00"},
-    {nombre: "Pedro", especialidad: "Barbero", horario: "09:00 a 18:00"}
-];
+let trabajadoresGuardados = localStorage.getItem("trabajadores");
+let trabajadores;
+
+if (trabajadoresGuardados == null) {
+    trabajadores = [
+        {nombre: "Maria", especialidad: "Estilista", horario: "08:00 a 17:00"},
+        {nombre: "Pedro", especialidad: "Barbero", horario: "09:00 a 18:00"}
+    ];
+    localStorage.setItem("trabajadores", JSON.stringify(trabajadores));
+} else {
+    trabajadores = JSON.parse(trabajadoresGuardados);
+}
 
 function mostrarTrabajadores() {
     let texto = "";
@@ -34,6 +42,7 @@ function agregarTrabajador() {
         horario: horario
     });
 
+    localStorage.setItem("trabajadores", JSON.stringify(trabajadores));
     mostrarTrabajadores();
 
     document.getElementById("nombre").value = "";
