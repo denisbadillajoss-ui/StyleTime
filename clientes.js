@@ -1,8 +1,15 @@
-//Clientes es un arreglo con objetos como nombre y telefono
-let clientes = [
-    {nombre: "María Rodríguez", telefono: "88881111"},
-    {nombre: "Carlos Pérez", telefono: "88882222"}
-];
+let clientesGuardados = localStorage.getItem("clientes");
+let clientes;
+
+if (clientesGuardados == null) {
+    clientes = [
+        {nombre: "María Rodríguez", telefono: "88881111"},
+        {nombre: "Carlos Pérez", telefono: "88882222"}
+    ];
+    localStorage.setItem("clientes", JSON.stringify(clientes));
+} else {
+    clientes = JSON.parse(clientesGuardados);
+}
 
 function mostrarClientes() {
     let texto = "";
@@ -27,6 +34,7 @@ function agregarCliente() {
     }
 
     clientes.push({nombre: nombre, telefono: telefono});
+    localStorage.setItem("clientes", JSON.stringify(clientes));
     mostrarClientes();
 
     document.getElementById("nombre").value = "";
