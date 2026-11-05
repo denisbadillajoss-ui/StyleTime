@@ -69,10 +69,16 @@
 
             if (usuario == "" || clave == "") {
                 mostrarMensaje("mensaje", "Todos los campos son obligatorios.", "danger");
-            } else {
-                mostrarMensaje("mensaje", "Formulario completo. Autenticación pendiente.", "info");
+                return;
             }
-        }
+
+            if (usuario == "admin" && clave == "Admin123") {
+        sessionStorage.setItem("sesion", "administrador");
+        window.location.href = "index.html";
+            } else {
+        mostrarMensaje("mensaje", "Usuario o contraseña incorrectos.", "danger");
+    }
+}
     </script>
 </body>
 </html>
