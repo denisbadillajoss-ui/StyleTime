@@ -1,8 +1,15 @@
+let serviciosGuardados = localStorage.getItem("servicios");
+let servicios;
 
-let servicios = [
-    {nombre: "Corte de cabello", duracion: 45, precio: 5000},
-    {nombre: "Barba", duracion: 30, precio: 3000}
-];
+if (serviciosGuardados == null) {
+    servicios = [
+        {nombre: "Corte de cabello", duracion: 45, precio: 5000},
+        {nombre: "Barba", duracion: 30, precio: 3000}
+    ];
+    localStorage.setItem("servicios", JSON.stringify(servicios));
+} else {
+    servicios = JSON.parse(serviciosGuardados);
+}
 
 function mostrarServicios() {
     let texto = "";
@@ -43,6 +50,7 @@ function agregarServicio() {
         precio: precio
     });
 
+    localStorage.setItem("servicios", JSON.stringify(servicios));
     mostrarServicios();
 
     document.getElementById("nombre").value = "";
