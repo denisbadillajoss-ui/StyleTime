@@ -67,8 +67,7 @@
                         <div class="col-12 col-md-6 col-lg-4">
                             <label class="form-label" for="trabajador">Trabajador</label>
                             <select id="trabajador" class="form-select" required aria-describedby="trabajadorAyuda">
-                                <option value="Andrea">Andrea</option>
-                                <option value="Luis">Luis</option>
+                                <option value="">Seleccione un trabajador</option>
                             </select>
                             <div class="invalid-feedback" id="trabajadorAyuda">Seleccione un trabajador.</div>
                         </div>
@@ -82,6 +81,9 @@
                             <button class="btn btn-primary w-100" type="button" onclick="consultarAgenda()">
                                 <i class="bi bi-search me-2" aria-hidden="true"></i>Consultar agenda
                             </button>
+                            <button class="btn btn-danger w-100 mt-2" type="button" onclick="marcarAusente()">
+                                <i class="bi bi-person-x me-2" aria-hidden="true"></i>Marcar ausente
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -90,7 +92,7 @@
                     <p>Un espacio para organizar tu día</p>
                     <span>Selecciona un trabajador y una fecha para iniciar la consulta.</span>
                 </div>
-                <p id="resultado" class="mensaje" role="status" aria-live="polite" aria-atomic="true"></p>
+                <div id="resultado" class="mensaje" role="status" aria-live="polite" aria-atomic="true"></div>
             </div>
         </section>
     </main>
